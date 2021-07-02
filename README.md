@@ -1,3 +1,3 @@
-# LWC Practice
+# LWC / Aura Practice
 
-Storing reusable LWC components
+Storing reusable LWC and Aura components
