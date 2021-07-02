@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId,force:hasSObjectName"
+                access="global"
+                controller="RecordTypeController">
+
+    <aura:attribute name="option" type="String" default=""/>
+    <aura:attribute name="options" type="List" default="[]"/>
+    <aura:attribute name="mapOfRecordType" type="Map" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <section id='modal' class="slds-clearfix">
+        <header class="slds-align_absolute-center slds-border_bottom">
+        	<h2 class="slds-var-m-bottom_medium slds-text-heading_medium slds-hyphenate">New Event</h2>
+        </header>
+        <div class="slds-var-m-top_large">
+            <lightning:layout multipleRows="true" horizontalAlign="center">
+                <lightning:layoutItem flexibility="auto" padding="arround-small"
+                                      size="12"
+                                      largeDeviceSize="12"
+                                      mediumDeviceSize="12"
+                                      smallDeviceSize="12">
+                    <lightning:combobox aura:id="recordTypePickList"
+                                        label="Select Event Record Type"
+                                        name="selectRecordType"
+                                        placeholder="Click here to select"
+                                        options="{! v.options }"
+                                        onchange="{! c.handleChange }"
+                                        required="true"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </section>
+    <footer class="slds-var-m-top_xx-large slds-float_right">
+        <lightning:button class="slds-var-m-left_medium slds-float_left" variant="neutral" label="Close" onclick="{!c.closeModal}"/>
+        <lightning:button class="slds-var-m-right_medium slds-float_right" variant="brand" label="Next" onclick="{!c.createRecord}"/>
+    </footer>  
+</aura:component>
